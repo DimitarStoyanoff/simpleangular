@@ -2,30 +2,30 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Contact } from './contact';
 import { Observable, Subscription } from 'rxjs';
 import { ContactService } from '../contact.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  styleUrls: ['./contact-list.component.scss']
 })
-export class ContactListComponent implements OnInit, OnDestroy {
-
-public contactList : Contact[];
+export class ContactListComponent implements OnInit {
+  
 public contactList$ : Observable<Contact[]>;
-
-private subscription : Subscription;
 
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-    this.subscription = this.contactService.getContacts().subscribe((list: Contact[]) => {
-      console.log(list);
-        this.contactList = list;
-    });
+  
+    this.contactList$ = this.contactService.isListUpdated().pipe(
+      switchMap(()=> this.contactService.getContacts())
+  );
   }
 
-  ngOnDestroy() : void {
-    this.subscription.unsubscribe();
+  public onDeleteContact(id: number) :void {
+   this.contactService.deleteContact(id).subscribe();
   }
+
+
 
 }

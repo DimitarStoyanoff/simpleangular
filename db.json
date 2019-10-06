@@ -1,8 +1,28 @@
 {
-    "contacts" : [
-        {
-            "firstName" : "Tao",
-            "lastName" : "Tolya"
-        }
-    ]
+  "contacts": [
+    {
+      "firstName": "Tao",
+      "lastName": "Disha",
+      "age": 29,
+      "id": 1
+    },
+    {
+      "firstName": "Antonio",
+      "lastName": "Georgiev",
+      "age": 23,
+      "id": 2
+    },
+    {
+      "firstName": "Iulia",
+      "lastName": "Mocanu",
+      "age": 26,
+      "id": 5
+    },
+    {
+      "firstName": "Viktor",
+      "lastName": "Enchev",
+      "age": 23,
+      "id": 7
+    }
+  ]
 }

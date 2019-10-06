@@ -1,2 +1,8 @@
-<span>First name {{contact.firstName}}</span>
-<span>Last name {{contact.lastName}}</span>
+<div class="info">
+    <span>{{contact.firstName}}</span>
+    <span>{{contact.lastName}}</span>
+    <div class="actions">
+        <button [routerLink]="['/contacts', contact.firstName]">Edit</button>
+        <button (click)="onDelete(contact)">Delet</button>
+    </div>
+</div>

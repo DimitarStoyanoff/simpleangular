@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+    ul {
+        list-style: none;
+    
+
+        li {
+            padding: 4px 6px;
+            cursor: pointer;
+            background-color: bisque;
+
+            &:hover {
+                background-color:  darken(bisque, 50);
+            }
+        }
+    }
+}
